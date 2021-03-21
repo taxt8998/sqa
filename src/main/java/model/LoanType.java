@@ -5,16 +5,19 @@ public class LoanType {
     private String name;
     private String description;
     private double rate;
+    private int duration;
 
     @Override
     public String toString() {
-        return "LoanType{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", rate=" + rate +
-                '}';
+        return "LoanType{" + 
+                "id=" + id + 
+                ", name=" + name + 
+                ", description=" + description + 
+                ", rate=" + rate + 
+                ", duration=" + duration + '}';
     }
+    
+    
 
     public int getId() {
         return id;
@@ -48,13 +51,25 @@ public class LoanType {
         this.rate = rate;
     }
 
-    public LoanType(int id, String name, String description, double rate) {
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public LoanType(int id, String name, String description, double rate, int duration) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.rate = rate;
+        this.duration = duration;
     }
 
+    
+
     public LoanType() {
+        super();
     }
 }

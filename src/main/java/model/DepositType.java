@@ -67,5 +67,6 @@ public class DepositType {
     }
 
     public DepositType() {
+        super();
     }
 }

@@ -19,7 +19,7 @@
     System.out.println(kq);
     if(kq && emp.getPosition().equalsIgnoreCase("manager")){
         session.setAttribute("user",emp);
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("nvquanly/gdChinhNVQL.jsp");
     }
     else {
         response.sendRedirect("index.jsp");
