@@ -1,9 +1,10 @@
 <%-- 
-    Document   : gdCauhinhVay
-    Created on : Mar 19, 2021, 10:15:42 PM
+    Document   : gdCauhinhGui
+    Created on : Mar 22, 2021, 3:30:57 PM
     Author     : ASUS
 --%>
 <%@page import="model.Employee"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,17 +12,15 @@
     <head>
         <meta charset="UTF-8">
         <%@include file ="../header.jsp" %>
-        <title>Cấu hình vay</title>
+        <title>Cấu hình gửi</title>
     </head>
     <body>
         <%
             Employee emp = (Employee) session.getAttribute("user");
             if(emp == null) response.sendRedirect("home.jsp");
         %>
-        <div>
-            <button  onclick="openPage('gdThemkieuvay.jsp')">Thêm kiểu vay</button>
-            <button  onclick="openPage('gdSualaivay.jsp')">Sửa lãi vay</button>
-            <button  onclick="openPage('gdXoakieuvay.jsp')">Xóa kiểu vay</button>
-        </div>
+        <button  onclick="openPage('gdThemkieugui.jsp')">Thêm kiểu gửi</button>
+        <button  onclick="openPage('gdSualaigui.jsp')">Sửa lãi gửi</button>
+        <button  onclick="openPage('gdXoakieugui.jsp')">Xóa kiểu gửi</button>
     </body>
 </html>

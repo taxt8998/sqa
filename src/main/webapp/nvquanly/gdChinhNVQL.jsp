@@ -15,7 +15,9 @@
     <body>
         <%
             Employee emp = (Employee) session.getAttribute("user");
-            if(emp == null) response.sendRedirect("home.jsp");
+            if (emp == null) {
+                response.sendRedirect("home.jsp");
+            }
         %>
         <div>
             <h3>Giao diện chính nhân viên quản lý</h3>

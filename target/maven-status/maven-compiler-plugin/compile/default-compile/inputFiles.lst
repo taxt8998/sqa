@@ -8,7 +8,9 @@ D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\model\Loan.java
 D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\dao\DAO.java
 D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\dao\UserDAO.java
 D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\dao\EmployeeDAO.java
+D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\dao\LoanTypeDAO.java
 D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\model\CustomerType.java
 D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\model\Branch.java
 D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\model\Bank.java
 D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\model\Customer.java
+D:\Users\ASUS\Documents\NetBeansProjects\sqa\src\main\java\dao\DepositTypeDAO.java

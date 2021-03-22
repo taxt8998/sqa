@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>HOME</title>
+    <title>Trang chủ</title>
 </head>
 <body>
-    <h1>Home</h1>
-    <a href="index.jsp">Index</a>
+    <h1>Trang chủ</h1>
+    <a href="index.jsp">Đăng nhập</a>
 </body>
 </html>
