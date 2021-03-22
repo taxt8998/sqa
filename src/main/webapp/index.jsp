@@ -9,7 +9,7 @@
 <%
     Employee employee = (Employee) session.getAttribute("user");
     if (employee != null) {
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("nvquanly/gdChinhNVQL.jsp");
         return;
     }
 %>

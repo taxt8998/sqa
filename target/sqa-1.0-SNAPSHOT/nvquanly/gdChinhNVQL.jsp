@@ -19,7 +19,7 @@
         %>
         <div>
             <h3>Giao diện chính nhân viên quản lý</h3>
-            <button  onclick="openPage('')">Theo dõi danh sách</button>
+            <button  onclick="openPage('gdTheoDoiDS.jsp')">Theo dõi danh sách</button>
             <button  onclick="openPage('')">Xuất báo cáo</button>
             <button  onclick="openPage('gdCauhinh.jsp')">Cấu hình</button>
         </div>

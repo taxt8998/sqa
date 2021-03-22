@@ -7,6 +7,19 @@ public class Account {
     private Date openDate;
     private Customer customer;
     private CustomerType customerType;
+    private String cardId;
+
+    public Account(int id, Date openDate, Customer customer, CustomerType customerType, String cardId) {
+        this.id = id;
+        this.openDate = openDate;
+        this.customer = customer;
+        this.customerType = customerType;
+        this.cardId = cardId;
+    }
+
+    public String getCardId() {
+        return cardId;
+    }
 
     @Override
     public String toString() {
@@ -15,7 +28,12 @@ public class Account {
                 ", openDate=" + openDate +
                 ", customer=" + customer +
                 ", customerType=" + customerType +
+                ", cardId='" + cardId + '\'' +
                 '}';
+    }
+
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
     }
 
     public int getId() {
