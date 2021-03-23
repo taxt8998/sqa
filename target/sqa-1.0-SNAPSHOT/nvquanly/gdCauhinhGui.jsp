@@ -19,7 +19,7 @@
             Employee emp = (Employee) session.getAttribute("user");
             if(emp == null) response.sendRedirect("../index.jsp");
         %>
-        <button  onclick="openPage('gdThemkieugui.jsp')">Thêm kiểu gửi</button>
+        <button  onclick="openPage('gdChoncauhinhGui.jsp')">Thêm kiểu gửi</button>
         <button  onclick="openPage('gdSualaigui.jsp')">Sửa lãi gửi</button>
         <button  onclick="openPage('gdXoakieugui.jsp')">Xóa kiểu gửi</button>
     </body>

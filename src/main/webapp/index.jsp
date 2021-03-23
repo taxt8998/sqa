@@ -14,8 +14,6 @@
     }
     int errorCode = 0;
     if(request.getParameter("error") != null) errorCode = Integer.parseInt(request.getParameter("error")) ;
-    System.out.println(request.getParameter("error"));
-    System.out.println(errorCode);
 
 %>
 <html>
@@ -27,13 +25,14 @@
 
         <form action="doDangnhap.jsp" method="post" name="login" id="login">
             <tr>
-                <td><label for="">Tên đăng nhập</label></td>
+                <td><label>Tên đăng nhập</label></td>
                 <td><input
                         type="text"
                         id="username"
                     <% if (errorCode == 3) {%> autofocus <%}%>
                         name="username"
-                    <% if (errorCode == 2) {%> value="<%=session.getAttribute("username")%>" <%}%>></td>
+                    <% if (errorCode == 2) {%> value="<%=session.getAttribute("username")%>" <%}%>>
+                </td>
             </tr>
             <%if (errorCode == 3){%>
             <tr>
@@ -42,7 +41,7 @@
             </tr>
             <%}%>
             <tr>
-                <td><label for="">Mật khẩu</label></td>
+                <td><label for=>Mật khẩu</label></td>
                 <td><input type="password" name="password" <% if (errorCode == 2) {%> autofocus <%}%>  id="password"></td>
             </tr>
             <%if (errorCode == 2){%>

@@ -66,6 +66,20 @@ public class DepositType {
         this.duration = duration;
     }
 
+    public DepositType(String name, String description, double rate, int duration) {
+        this.name = name;
+        this.description = description;
+        this.rate = rate;
+        this.duration = duration;
+    }
+
+    public DepositType(String name, String description, double rate) {
+        this.name = name;
+        this.description = description;
+        this.rate = rate;
+    }
+    
+
     public DepositType() {
         super();
     }

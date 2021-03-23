@@ -28,6 +28,7 @@
         <form action="doDangnhap.jsp" method="post" name="login" id="login">
             <tr>
                 <td><label for="">Tên đăng nhập</label></td>
+<<<<<<< HEAD
                 <td><input
                         type="text"
                         id="username"
@@ -39,6 +40,9 @@
             <tr>
                 <td></td>
                 <td><p style="color: #ff0000"> Tên đăng nhập không tồn tại</p></td>
+=======
+                <td><input type="text" id="username" name="username" autofocus="autofocus"></td>
+>>>>>>> c4fb1ebde9615dff1b1cf7c7e3ffef7e7b10a0ff
             </tr>
             <%}%>
             <tr>
