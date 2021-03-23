@@ -10,12 +10,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.LoanType;
+import java.sql.Statement;
 
 /**
  *
  * @author ASUS
  */
+
 public class LoanTypeDAO extends DAO {
 
     public LoanTypeDAO() {
@@ -82,6 +86,57 @@ public class LoanTypeDAO extends DAO {
             }
         }
 
+        return kq;
+    }
+
+    public boolean checkExistLoan(String s) {
+        boolean kq = true;
+        String sql = "{call checkloan(?)}";
+        try {
+            CallableStatement cs = connection.prepareCall(sql);
+            cs.setString(1, s);
+            ResultSet rs = cs.executeQuery();
+            if (!rs.next()) {
+                kq = false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return kq;
+    }
+
+    public boolean addLoanType(ArrayList<LoanType> lt) {
+        boolean kq = false;
+        String insert = "INSERT INTO tblloantype(loan_name,rate,description,duration) VALUES (?,?,?,?)";
+        try {
+            this.connection.setAutoCommit(false);
+            for (int i = 0; i < lt.size(); i++) {
+                PreparedStatement ps = connection.prepareStatement(insert);
+                ps.setString(1, lt.get(i).getName());
+                ps.setDouble(2, lt.get(i).getRate());
+                ps.setString(3, lt.get(i).getDescription());
+                ps.setInt(4, lt.get(i).getDuration());
+                ps.executeUpdate();
+            }
+            this.connection.commit();
+            kq = true;
+
+        } catch (SQLException ex) {
+            try {
+                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+            } catch (Exception ee) {
+                kq = false;
+                ee.printStackTrace();
+            }
+            ex.printStackTrace();
+        } finally {
+            try {
+                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+            } catch (Exception e) {
+                kq = false;
+                e.printStackTrace();
+            }
+        }
         return kq;
     }
 }

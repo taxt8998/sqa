@@ -37,8 +37,16 @@
             <form action="doLuuGui.jsp">
                 <%
                     for (int i = 0; i < choseDep.size(); i++) {
+                        if(choseDep.get(i).getDuration()==0){
+                %>
+                <h4>Kỳ hạn: vô thời hạn </h4>
+                <%
+                        }else{
                 %>
                 <h4>Kỳ hạn: <%=choseDep.get(i).getDuration()%> Tháng</h4>
+                <%
+                    }
+                %>
                 <h4><input type="number"  step="0.01" min="0.0" autofocus="autofocus" name="changeDep" onkeypress="validate(event)" value="<%=choseDep.get(i).getRate()%>" required />% </h4>
 
                 <%

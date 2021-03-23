@@ -67,6 +67,13 @@ public class LoanType {
         this.duration = duration;
     }
 
+    public LoanType(String name, String description, double rate, int duration) {
+        this.name = name;
+        this.description = description;
+        this.rate = rate;
+        this.duration = duration;
+    }
+
     
 
     public LoanType() {

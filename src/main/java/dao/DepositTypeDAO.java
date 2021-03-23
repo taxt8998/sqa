@@ -87,4 +87,55 @@ public class DepositTypeDAO extends DAO {
 
         return kq;
     }
+    
+    public boolean checkExistDeposit(String s) {
+        boolean kq = true;
+        String sql = "{call checkdep(?)}";
+        try {
+            CallableStatement cs = connection.prepareCall(sql);
+            cs.setString(1, s);
+            ResultSet rs = cs.executeQuery();
+            if (!rs.next()) {
+                kq = false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return kq;
+    }
+    
+    public boolean addDepType(ArrayList<DepositType> dt) {
+        boolean kq = false;
+        String insert = "INSERT INTO tbldeposittype(deptype_name,rate,description,duration) VALUES (?,?,?,?)";
+        try {
+            this.connection.setAutoCommit(false);
+            for (int i = 0; i < dt.size(); i++) {
+                PreparedStatement ps = connection.prepareStatement(insert);
+                ps.setString(1, dt.get(i).getName());
+                ps.setDouble(2, dt.get(i).getRate());
+                ps.setString(3, dt.get(i).getDescription());
+                ps.setInt(4, dt.get(i).getDuration());
+                ps.executeUpdate();
+            }
+            this.connection.commit();
+            kq = true;
+
+        } catch (SQLException ex) {
+            try {
+                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+            } catch (Exception ee) {
+                kq = false;
+                ee.printStackTrace();
+            }
+            ex.printStackTrace();
+        } finally {
+            try {
+                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+            } catch (Exception e) {
+                kq = false;
+                e.printStackTrace();
+            }
+        }
+        return kq;
+    }
 }

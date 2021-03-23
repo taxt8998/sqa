@@ -23,7 +23,7 @@
         <form action="doDangnhap.jsp" method="post" name="login" id="login">
             <tr>
                 <td><label for="">Tên đăng nhập</label></td>
-                <td><input type="text" id="username" name="username"></td>
+                <td><input type="text" id="username" name="username" autofocus="autofocus"></td>
             </tr>
             <tr>
                 <td><label for="">Mật khẩu</label></td>
