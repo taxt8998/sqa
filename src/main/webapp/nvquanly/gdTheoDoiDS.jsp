@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Employee emp = (Employee) session.getAttribute("user");
-    if(emp == null) response.sendRedirect("index.jsp");
+    if(emp == null) response.sendRedirect("../index.jsp");
 %>
 <html>
 <head>
@@ -19,7 +19,6 @@
 <body>
     <h3>Chọn loại giao dịch</h3>
     <button  onclick="openPage('gdTheoDoiVay.jsp')">Khoản vay</button>
-    <button  onclick="openPage('gdTheoDoiDS.jsp')">Theo dõi danh sách</button>
     <button  onclick="openPage('gdTheoDoiTK.jsp')">Khoản tiết kiệm</button>
 </body>
 </html>

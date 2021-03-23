@@ -12,17 +12,50 @@
     EmployeeDAO empDAO = new EmployeeDAO();
     String username = request.getParameter("username");
     String password = request.getParameter("password");
+    session.setAttribute("username",username);
+    session.setAttribute("password",password);
     Employee emp = new Employee();
     emp.setUsername(username);
     emp.setPassword(password);
-    boolean kq = empDAO.checkLogin(emp);
-    System.out.println(kq);
-    if(kq && emp.getPosition().equalsIgnoreCase("manager")){
+    int kq = empDAO.checkLogin(emp);
+    if(kq == 1 && emp.getPosition().equalsIgnoreCase("manager")){
         session.setAttribute("user",emp);
         response.sendRedirect("nvquanly/gdChinhNVQL.jsp");
     }
-    else {
-        response.sendRedirect("index.jsp");
+
+    // Sai mật khẩu
+    else if (kq == 2 ) { %>
+        <form action="index.jsp" method="post" name="error" id="error">
+        <input type="hidden" value="2" name="error">
+        </form>
+<%
+    }
+    // Sai tên đăng nhập
+    else if (kq == 3) { %>
+        <form action="index.jsp" method="post" name="error" id="error">
+        <input type="hidden" value="3" name="error">
+        </form>
+<%
     }
 
 %>
+<html>
+<head>
+    <script type="text/javascript">
+
+        function formAutoSubmit () {
+
+            var frm = document.getElementById("error");
+
+            frm.submit();
+
+        }
+
+        window.onload = formAutoSubmit;
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

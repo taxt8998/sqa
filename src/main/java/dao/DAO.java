@@ -8,7 +8,7 @@ public class DAO {
     private static String USER_NAME = "root";
     private static String PASSWORD = "root";
 
-    private static String DB_URL = "jdbc:mysql://localhost:3306/"+DB_NAME+"?autoReconnect=true&useSSL=false";
+    private static String DB_URL = "jdbc:mysql://localhost:3306/"+DB_NAME+"?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8";
     public static Connection connection;
     public DAO() {
         if (connection == null){

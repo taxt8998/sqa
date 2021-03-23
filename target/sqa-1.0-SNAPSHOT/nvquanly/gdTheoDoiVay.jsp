@@ -14,14 +14,13 @@
 <%
 
     Employee emp = (Employee) session.getAttribute("user");
-    if(emp == null) response.sendRedirect("index.jsp");
+    if(emp == null) response.sendRedirect("../index.jsp");
 
 
     FormatDate formatDate = new FormatDate();
     FormatDecimal formatDecimal = new FormatDecimal();
     LoanDAO loanDAO = new LoanDAO();
     String thisURL = String.valueOf(request.getRequestURL());
-    System.out.println(thisURL);
     int total = loanDAO.getTotal();
     int quantity = 10;
     int maxPage =(int) Math.ceil((double) total/quantity);
@@ -48,6 +47,7 @@
     <td>Số tài khoản</td>
     <td>Số tiền</td>
     <td>Ngày gửi</td>
+    <td></td>
     </thead>
     <tbody>
         <%for (int i =0 ;i<listLoan.size();i++){
@@ -59,18 +59,25 @@
             <td><%=loan.getAccount().getId()%></td>
             <td><%=formatDecimal.formatCurrency(loan.getAmount())%></td>
             <td><%=formatDate.format(loan.getStartDate())%></td>
+            <td><a href="gdChiTietVay.jsp?id=<%=loan.getId()%>">Xem thêm</a></td>
         </tr>
         <%}%>
     </tbody>
 </table>
 
 <div class="pagination">
+    <%if (pageNum > 2){%>
+    <button onclick="openPage('gdTheoDoiVay.jsp?page=<%=1%>')">Trang đầu</button>
+    <%}%>
     <%if (pageNum > 1){%>
     <button onclick="openPage('gdTheoDoiVay.jsp?page=<%=pageNum-1%>')"><%=pageNum-1%></button>
     <%}%>
     <button onclick="openPage(<%=thisURL%>)" disabled ><%=pageNum%></button>
-    <%if (pageNum<maxPage){%>
+    <%if (pageNum < maxPage){%>
     <button onclick="openPage('gdTheoDoiVay.jsp?page=<%=pageNum+1%>')"><%=pageNum+1%></button>
+    <%}%>
+    <%if (pageNum < maxPage - 1){%>
+    <button onclick="openPage('gdTheoDoiVay.jsp?page=<%=maxPage%>')">Trang cuối</button>
     <%}%>
 </div>
 </body>

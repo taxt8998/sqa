@@ -3,11 +3,14 @@ package utils;
 import java.text.DecimalFormat;
 
 public class FormatDecimal {
-    private static DecimalFormat formatter = new DecimalFormat("###,###,###");;
+    private static DecimalFormat currecyFormatter = new DecimalFormat("###,###,###");;
+    public static DecimalFormat rateFormatter = new DecimalFormat("");
     public FormatDecimal() {
     }
     public String formatCurrency(double f){
-        return  formatter.format(f);
+        return  currecyFormatter.format(f);
     }
-
+//    public double formatRate(double f) {
+//        return Float.parseFloat(rateFormatter.format(f));
+//    }
 }

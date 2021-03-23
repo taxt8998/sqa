@@ -20,9 +20,7 @@
     <body>
         <%
             Employee emp = (Employee) session.getAttribute("user");
-            if (emp == null) {
-                response.sendRedirect("home.jsp");
-            }
+            if(emp == null) response.sendRedirect("../index.jsp");
         %>
         <%
             ArrayList<LoanType> choseLoan = new ArrayList<>();

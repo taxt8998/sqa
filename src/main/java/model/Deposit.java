@@ -8,9 +8,14 @@ public class Deposit {
     private Branch branch;
     private Account account;
     private double amount;
-    private Date date;
+    private Date depositDate;
+    private Date withdraw_date;
     private int duration;
     private double curRate;
+
+    public Date getDepositDate() {
+        return depositDate;
+    }
 
     @Override
     public String toString() {
@@ -20,10 +25,35 @@ public class Deposit {
                 ", branch=" + branch +
                 ", account=" + account +
                 ", amount=" + amount +
-                ", date=" + date +
+                ", depositDate=" + depositDate +
+                ", withdraw_date=" + withdraw_date +
                 ", duration=" + duration +
                 ", curRate=" + curRate +
                 '}';
+    }
+
+    public void setDepositDate(Date depositDate) {
+        this.depositDate = depositDate;
+    }
+
+    public Date getWithdraw_date() {
+        return withdraw_date;
+    }
+
+    public void setWithdraw_date(Date withdraw_date) {
+        this.withdraw_date = withdraw_date;
+    }
+
+    public Deposit(int id, DepositType depositType, Branch branch, Account account, double amount, Date depositDate, Date withdraw_date, int duration, double curRate) {
+        this.id = id;
+        this.depositType = depositType;
+        this.branch = branch;
+        this.account = account;
+        this.amount = amount;
+        this.depositDate = depositDate;
+        this.withdraw_date = withdraw_date;
+        this.duration = duration;
+        this.curRate = curRate;
     }
 
     public int getId() {
@@ -66,14 +96,6 @@ public class Deposit {
         this.amount = amount;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public int getDuration() {
         return duration;
     }
@@ -96,7 +118,7 @@ public class Deposit {
         this.branch = branch;
         this.account = account;
         this.amount = amount;
-        this.date = date;
+        this.depositDate = date;
         this.duration = duration;
         this.curRate = curRate;
     }

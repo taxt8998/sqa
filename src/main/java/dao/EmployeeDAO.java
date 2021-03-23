@@ -13,23 +13,32 @@ public class EmployeeDAO extends DAO{
         System.out.println("EMPLOYEEDAO");
     }
 
-    public boolean checkLogin(Employee employee){
-        boolean kq = false;
+    public int checkLogin(Employee employee){
+        int kq = 0;
         String sql = "SELECT u.*,e.position FROM tbluser as u  JOIN tblemployee as e" +
-                " WHERE u.username = ? AND u.password = ? AND u.role = 'employee'";
+                " WHERE u.username = ? AND u.role = 'employee'";
         try {
             PreparedStatement ps  = connection.prepareStatement(sql);
             ps.setString(1,employee.getUsername());
-            ps.setString(2,employee.getPassword());
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                employee.setPosition(rs.getString("position"));
-                employee.setId(rs.getInt("id"));
-                employee.setName(rs.getString("u_name"));
-                employee.setRole(rs.getString("role"));
-                employee.setAddress(rs.getString("address"));
-                employee.setBirth(rs.getDate("birth"));
-                kq = true;
+                if(employee.getPassword().equals(rs.getString("password"))){
+                    employee.setPosition(rs.getString("position"));
+                    employee.setId(rs.getInt("id"));
+                    employee.setName(rs.getString("u_name"));
+                    employee.setRole(rs.getString("role"));
+                    employee.setAddress(rs.getString("address"));
+                    employee.setBirth(rs.getDate("birth"));
+                    kq = 1;
+                }
+                // Sai mật khẩu
+                else {
+                    kq = 2;
+                }
+            }
+            // Sai tên đăng nhập
+            else {
+                kq = 3;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
