@@ -21,7 +21,7 @@
         <div>
             <button  onclick="openPage('gdCauhinhVay.jsp')">Cấu hình vay</button>
             <button  onclick="openPage('gdCauhinhGui.jsp')">Cấu hình gửi</button>
-            <button  onclick="openPage('gdChinhNVQL.jsp')">Giao diện chính nhân viên</button>
+            <button  onclick="openPage('gdChinhNVQL.jsp')">Quay lại</button>
 	</div>
     </body>
 </html>

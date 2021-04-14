@@ -18,7 +18,7 @@
             if(emp == null) response.sendRedirect("../index.jsp");
         %>
         <div>
-            <h3>Giao diện chính nhân viên quản lý</h3>
+            <h4>Chào bạn, Nhân viên quản lý !</h4>
             <button  onclick="openPage('gdTheoDoiDS.jsp')">Theo dõi danh sách</button>
             <button  onclick="openPage('gdChonLoaiBaoCao.jsp')">Xuất báo cáo</button>
             <button  onclick="openPage('gdCauhinh.jsp')">Cấu hình</button>

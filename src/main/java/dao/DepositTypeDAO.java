@@ -138,4 +138,39 @@ public class DepositTypeDAO extends DAO {
         }
         return kq;
     }
+    
+        public boolean deleteDep(DepositType dt) {
+
+        boolean kq = false;
+        String delete_sql1 = "DELETE FROM tbldeposit WHERE deptype_id=?";
+        String delete_sql2 = "DELETE FROM tbldeposittype WHERE deptype_name=?";
+        try {
+            this.connection.setAutoCommit(false);
+            PreparedStatement ps1 = connection.prepareStatement(delete_sql1);
+            ps1.setInt(1, dt.getId());
+            ps1.executeUpdate();
+            PreparedStatement ps2 = connection.prepareStatement(delete_sql2);
+            ps2.setString(1, dt.getName());
+            ps2.executeUpdate();
+            this.connection.commit();//cmt dong nay ney chay che do JUnit test
+            kq = true;
+            
+        } catch (SQLException e) {
+            try {
+                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+            } catch (Exception ee) {
+                kq = false;
+                ee.printStackTrace();
+            }
+            e.printStackTrace();
+        } finally {
+            try {
+                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+            } catch (Exception e) {
+                kq = false;
+                e.printStackTrace();
+            }
+        }
+        return kq;
+    }
 }

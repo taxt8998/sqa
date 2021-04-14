@@ -31,7 +31,7 @@
 %>
 <html>
 <head>
-    <title>Chi tiết khoản vay</title>
+    <title>Chi tiết khoản tiết kiệm</title>
     <%@include file ="../header.jsp" %>
 </head>
 <body>
