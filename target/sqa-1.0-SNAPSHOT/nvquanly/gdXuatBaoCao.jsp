@@ -135,7 +135,7 @@
         <td>Chủ tài khoản</td>
         <td>Số tài khoản</td>
         <td>Số tiền</td>
-        <td>Ngày gửi</td>
+        <td>Ngày thực hiện</td>
         <td></td>
         </thead>
         <%if (type.equalsIgnoreCase("loan")){%>
@@ -166,7 +166,7 @@
             <td><%=deposit.getAccount().getId()%></td>
             <td><%=formatDecimal.formatCurrency(deposit.getAmount())%></td>
             <td><%=formatDate.format(deposit.getDepositDate())%></td>
-            <td><a href="gdChiTietVay.jsp?id=<%=deposit.getId()%>">Xem thêm</a></td>
+            <td><a href="gdChiTietTK.jsp?id=<%=deposit.getId()%>">Xem thêm</a></td>
         </tr>
         <%}%>
         </tbody>

@@ -19,7 +19,6 @@ import java.sql.Statement;
  *
  * @author ASUS
  */
-
 public class LoanTypeDAO extends DAO {
 
     public LoanTypeDAO() {
@@ -129,6 +128,41 @@ public class LoanTypeDAO extends DAO {
                 ee.printStackTrace();
             }
             ex.printStackTrace();
+        } finally {
+            try {
+                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+            } catch (Exception e) {
+                kq = false;
+                e.printStackTrace();
+            }
+        }
+        return kq;
+    }
+
+    public boolean deleteLoan(LoanType lt) {
+
+        boolean kq = false;
+        String delete_sql1 = "DELETE FROM tblloan WHERE loantype_id=?";
+        String delete_sql2 = "DELETE FROM tblloantype WHERE loan_name=?";
+        try {
+            this.connection.setAutoCommit(false);
+            PreparedStatement ps1 = connection.prepareStatement(delete_sql1);
+            ps1.setInt(1, lt.getId());
+            ps1.executeUpdate();
+            PreparedStatement ps2 = connection.prepareStatement(delete_sql2);
+            ps2.setString(1, lt.getName());
+            ps2.executeUpdate();
+            this.connection.commit();//cmt dong nay ney chay che do JUnit test
+            kq = true;
+            
+        } catch (SQLException e) {
+            try {
+                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+            } catch (Exception ee) {
+                kq = false;
+                ee.printStackTrace();
+            }
+            e.printStackTrace();
         } finally {
             try {
                 this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test

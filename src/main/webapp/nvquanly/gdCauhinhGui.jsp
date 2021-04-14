@@ -21,6 +21,7 @@
         %>
         <button  onclick="openPage('gdChoncauhinhGui.jsp')">Thêm kiểu gửi</button>
         <button  onclick="openPage('gdSualaigui.jsp')">Sửa lãi gửi</button>
-        <button  onclick="openPage('gdXoakieugui.jsp')">Xóa kiểu gửi</button>
+        <button  onclick="openPage('gdXoakieugui.jsp')">Xóa kiểu gửi</button><br><br>
+        <button  onclick="openPage('gdChinhNVQL.jsp')">Quay lại</button>
     </body>
 </html>

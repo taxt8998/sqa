@@ -42,7 +42,7 @@
                 <li> 
                     <p>Kỳ hạn <%=duration_list.get(i)%> tháng</p>
                     <label for="">Lãi suất:  </label>
-                    <input type="number"  step="0.01" min="0.0"  id="rate_g" name="rate_g" placeholder="Nhập lãi theo %" required />
+                    <input type="number"  step="0.01" min="0.0" max="20.0" id="rate_g" name="rate_g" placeholder="Nhập lãi theo %" required />
                     <label for="">Mô tả:   </label>
                     <input type="text" id="des_name" name="des_name" placeholder="nhập mô tả vào đây!" required />
                 </li>
@@ -62,7 +62,7 @@
             <label for="">Tên kiểu gửi mới: </label>
             <input type="text" autofocus="autofocus" id="d_name" name="d_name" placeholder="nhập tên vào đây!" required />
             <label for="">Lãi suất:  </label>
-            <input type="number"  step="0.01" min="0.0"  id="rate_nl" name="rate_nl" placeholder="Nhập lãi theo %" required />
+            <input type="number"  step="0.01" min="0.0"  max="20.0" id="rate_nl" name="rate_nl" placeholder="Nhập lãi theo %" required />
             <label for="">Mô tả:   </label>
             <input type="text" id="des_namenl" name="des_namenl" placeholder="nhập mô tả vào đây!" required />
             <input type="submit" value="Lưu" onclick="return confirm('Bạn có chắc muốn lưu?')" />
