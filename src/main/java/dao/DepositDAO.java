@@ -13,6 +13,7 @@ public class DepositDAO extends DAO{
     }
     public ArrayList<Deposit> getDeposit(int page) throws SQLException {
         ArrayList<Deposit> kq = new ArrayList<Deposit>();
+        if(page <= 0) return null;
         int quantity = 10;
         int start = (page - 1)*quantity;
         String sql = "SELECT d.id as deposit_id, d.amount, d.duration, " +

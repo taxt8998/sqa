@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ReportDAO extends DAO{
     public ReportDAO() {
@@ -16,6 +18,7 @@ public class ReportDAO extends DAO{
         int quantity = 10;
         int start = (page - 1)*quantity;
         ArrayList<Loan> listLoan = new ArrayList<Loan>();
+        if(page <= 0) return null;
         String sql = "SELECT l.id as loan_id, l.amount, " +
                 "l.start_date, u.u_name,  " +
                 "a.id as account_id  " +
@@ -50,6 +53,7 @@ public class ReportDAO extends DAO{
         int quantity = 10;
         int start = (page - 1)*quantity;
         ArrayList<Loan> listLoan = new ArrayList<Loan>();
+        if(page <= 0) return null;
         String sql = "SELECT l.id as loan_id, l.amount, " +
                 "l.start_date, u.u_name,  " +
                 "a.id as account_id " +
@@ -89,6 +93,7 @@ public class ReportDAO extends DAO{
         else if(quarter == 3) months = "(7,8,9)";
         else if(quarter == 4) months = "(10,11,12)";
         ArrayList<Loan> listLoan = new ArrayList<Loan>();
+        if(page <= 0) return null;
         String sql = "SELECT l.id as loan_id, l.amount, " +
                 "l.start_date, u.u_name,  " +
                 "a.id as account_id  " +
@@ -197,6 +202,7 @@ public class ReportDAO extends DAO{
         int quantity = 10;
         int start = (page - 1)*quantity;
         ArrayList<Deposit> listDeposit = new ArrayList<Deposit>();
+        if(page <= 0) return null;
         String sql = "SELECT d.id as deposit_id, d.amount, " +
                 "d.deposit_date ,  " +
                 "a.id as account_id, " +
@@ -232,6 +238,7 @@ public class ReportDAO extends DAO{
         int quantity = 10;
         int start = (page - 1)*quantity;
         ArrayList<Deposit> listDeposit = new ArrayList<Deposit>();
+        if(page <= 0) return null;
         String sql = "SELECT d.id as deposit_id, d.amount, " +
                 "d.deposit_date ,  " +
                 "a.id as account_id, " +
@@ -272,6 +279,7 @@ public class ReportDAO extends DAO{
         else if(quarter == 3) months = "(7,8,9)";
         else if(quarter == 4) months = "(10,11,12)";
         ArrayList<Deposit> listDeposit = new ArrayList<Deposit>();
+        if(page <= 0) return null;
         String sql = "SELECT d.id as deposit_id, d.amount, " +
                 "d.deposit_date ,  " +
                 "a.id as account_id, " +

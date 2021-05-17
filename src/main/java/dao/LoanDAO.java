@@ -13,6 +13,7 @@ public class LoanDAO extends DAO{
     }
     public ArrayList<Loan> getLoan(int page) throws SQLException {
         ArrayList<Loan> kq = new ArrayList<Loan>();
+        if(page <= 0) return null;
         int quantity = 10;
         int start = (page - 1)*quantity;
         String sql = "SELECT l.id as loan_id, l.amount, l.mortgate, l.duration, " +
