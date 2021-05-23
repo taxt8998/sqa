@@ -13,6 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author ASUS
  */
+
+//sua trong pom.xmml neu muon chay test
+//<artifactId>maven-surefire-plugin</artifactId>
+  //              <version>2.22.2</version>
 public class DepositTypeTest {
     
     public DepositTypeTest() {
