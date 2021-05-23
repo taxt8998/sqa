@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class LoanType {
     private int id;
     private String name;
@@ -79,4 +81,42 @@ public class LoanType {
     public LoanType() {
         super();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LoanType other = (LoanType) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.rate) != Double.doubleToLongBits(other.rate)) {
+            return false;
+        }
+        if (this.duration != other.duration) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
