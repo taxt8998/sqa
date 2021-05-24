@@ -21,7 +21,7 @@
         <div>
             <button  onclick="openPage('gdThemkieuvay.jsp')">Thêm kiểu vay</button>
             <button  onclick="openPage('gdSualaivay.jsp')">Sửa lãi vay</button>
-            <button  onclick="openPage('gdXoakieuvay.jsp')">Xóa kiểu vay</button><br><br>
+            <!--<button  onclick="openPage('gdXoakieuvay.jsp')">Xóa kiểu vay</button><br><br>-->
             <button  onclick="openPage('gdChinhNVQL.jsp')">Quay lại</button>
         </div>
     </body>

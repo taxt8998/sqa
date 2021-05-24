@@ -13,19 +13,19 @@
         <%@include file ="../header.jsp" %>
         <title>Chọn kiểu vay</title>
     </head>
+    <%
+        Employee emp = (Employee) session.getAttribute("user");
+        if(emp == null) response.sendRedirect("../index.jsp");
+    %>
+    <%
+        ArrayList<LoanType> listLoan = (new LoanTypeDAO()).getAllLoanType();
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < listLoan.size(); i++) {
+            set.add(listLoan.get(i).getName());
+        }
+        session.setAttribute("listLoan", listLoan);
+    %>
     <body>
-        <%
-            Employee emp = (Employee) session.getAttribute("user");
-            if(emp == null) response.sendRedirect("../index.jsp");
-        %>
-        <%
-            ArrayList<LoanType> listLoan = (new LoanTypeDAO()).getAllLoanType();
-            Set<String> set = new HashSet<>();
-            for (int i = 0; i < listLoan.size(); i++) {
-                set.add(listLoan.get(i).getName());
-            }
-            session.setAttribute("listLoan", listLoan);
-        %>
         <form action="gdSuachitietvay.jsp">
             <select id="kieuvay" name="kieuvay">
                 <% for (String s : set) {%>
