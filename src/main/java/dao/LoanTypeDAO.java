@@ -6,6 +6,8 @@
 package dao;
 
 import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +25,22 @@ public class LoanTypeDAO extends DAO {
 
     public LoanTypeDAO() {
         super();
+    }
+        public Connection getDAOConnection(){
+        String DB_NAME = "banksystem";
+        String USER_NAME = "root";
+        String PASSWORD = "771990tt";
+        Connection connection = null;
+        String DB_URL = "jdbc:mysql://localhost:3306/"+DB_NAME+"?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8";
+        try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+                System.out.println("connect successfully!");
+            } catch (Exception ex) {
+                System.out.println("connect failure!");
+                ex.printStackTrace();
+            }
+        return connection;
     }
 
     public ArrayList<LoanType> getAllLoanType() {
@@ -66,11 +84,11 @@ public class LoanTypeDAO extends DAO {
                 ps1.setInt(2, choseLoan.get(i).getId());
                 ps1.executeUpdate();
             }
-            this.connection.commit();//cmt dong nay ney chay che do JUnit test
+            //this.connection.commit();//cmt dong nay ney chay che do JUnit test
             kq = true;
         } catch (SQLException e) {
             try {
-                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+                //this.connection.rollback();//cmt dong nay ney chay che do JUnit test
             } catch (Exception ee) {
                 kq = false;
                 ee.printStackTrace();
@@ -78,7 +96,7 @@ public class LoanTypeDAO extends DAO {
             e.printStackTrace();
         } finally {
             try {
-                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+                //this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
             } catch (Exception e) {
                 kq = false;
                 e.printStackTrace();
@@ -117,12 +135,12 @@ public class LoanTypeDAO extends DAO {
                 ps.setInt(4, lt.get(i).getDuration());
                 ps.executeUpdate();
             }
-            this.connection.commit();
+            //this.connection.commit();
             kq = true;
 
         } catch (SQLException ex) {
             try {
-                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+                //this.connection.rollback();//cmt dong nay ney chay che do JUnit test
             } catch (Exception ee) {
                 kq = false;
                 ee.printStackTrace();
@@ -130,7 +148,7 @@ public class LoanTypeDAO extends DAO {
             ex.printStackTrace();
         } finally {
             try {
-                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+                //this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
             } catch (Exception e) {
                 kq = false;
                 e.printStackTrace();

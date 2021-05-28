@@ -17,6 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //sua trong pom.xmml neu muon chay test
 //<artifactId>maven-surefire-plugin</artifactId>
   //              <version>2.22.2</version>
+
+
+//chay code sua thanh nay
+//<artifactId>maven-war-plugin</artifactId>
+//                <version>3.3.0</version>
 public class DepositTypeTest {
     
     public DepositTypeTest() {
