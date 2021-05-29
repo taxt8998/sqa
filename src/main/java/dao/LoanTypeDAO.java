@@ -84,11 +84,11 @@ public class LoanTypeDAO extends DAO {
                 ps1.setInt(2, choseLoan.get(i).getId());
                 ps1.executeUpdate();
             }
-            //this.connection.commit();//cmt dong nay ney chay che do JUnit test
+            this.connection.commit();//cmt dong nay ney chay che do JUnit test
             kq = true;
         } catch (SQLException e) {
             try {
-                //this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
             } catch (Exception ee) {
                 kq = false;
                 ee.printStackTrace();
@@ -96,7 +96,7 @@ public class LoanTypeDAO extends DAO {
             e.printStackTrace();
         } finally {
             try {
-                //this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
             } catch (Exception e) {
                 kq = false;
                 e.printStackTrace();
@@ -135,12 +135,12 @@ public class LoanTypeDAO extends DAO {
                 ps.setInt(4, lt.get(i).getDuration());
                 ps.executeUpdate();
             }
-            //this.connection.commit();
+            this.connection.commit();
             kq = true;
 
         } catch (SQLException ex) {
             try {
-                //this.connection.rollback();//cmt dong nay ney chay che do JUnit test
+                this.connection.rollback();//cmt dong nay ney chay che do JUnit test
             } catch (Exception ee) {
                 kq = false;
                 ee.printStackTrace();
@@ -148,7 +148,7 @@ public class LoanTypeDAO extends DAO {
             ex.printStackTrace();
         } finally {
             try {
-                //this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
+                this.connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
             } catch (Exception e) {
                 kq = false;
                 e.printStackTrace();

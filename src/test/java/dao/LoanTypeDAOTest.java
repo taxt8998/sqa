@@ -65,60 +65,9 @@ public class LoanTypeDAOTest {
             connection.rollback();
             connection.close();
         }
+        assertEquals(kq, test);
     }
-//    @Test
-//    public void testSaveLoanRate(){
-//        boolean test = true;
-//        boolean kq = false;
-//        String DB_NAME = "banksystem";
-//        String USER_NAME = "root";
-//        String PASSWORD = "771990tt";
-//        String DB_URL = "jdbc:mysql://localhost:3306/"+DB_NAME+"?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8";
-//        Connection connection = null;
-//        ArrayList<LoanType> choseLoan = new ArrayList<>();
-//        choseLoan.add(new LoanType(1, "Vay tin chap", "ap dung voi tai khoan vang", 20.02, 60));
-//        try {
-//                Class.forName("com.mysql.cj.jdbc.Driver");
-//                connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-//                System.out.println("connect successfully!");
-//            } catch (Exception ex) {
-//                System.out.println("connect failure!");
-//                ex.printStackTrace();
-//        }
-//        String sql_lock = "SELECT * FROM tblloantype WHERE id=? FOR UPDATE";
-//        String sql_update = "UPDATE tblloantype SET rate=? WHERE id=?";
-//        try {
-//            connection.setAutoCommit(false);
-//            for (int i = 0; i < choseLoan.size(); i++) {
-//                PreparedStatement ps0 = connection.prepareStatement(sql_lock);
-//                ps0.setInt(1, choseLoan.get(i).getId());
-//                ps0.execute();
-//                PreparedStatement ps1 = connection.prepareStatement(sql_update);
-//                ps1.setDouble(1, choseLoan.get(i).getRate());
-//                ps1.setInt(2, choseLoan.get(i).getId());
-//                ps1.executeUpdate();
-//            }
-//            
-//            kq = true;
-//            connection.rollback();
-//        } catch (SQLException e) {
-//            try {
-//                connection.rollback();//cmt dong nay ney chay che do JUnit test
-//            } catch (Exception ee) {
-//                kq = false;
-//                ee.printStackTrace();
-//            }
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                connection.setAutoCommit(true);//cmt dong nay ney chay che do JUnit test
-//            } catch (Exception e) {
-//                kq = false;
-//                e.printStackTrace();
-//            }
-//        }
-//        assertEquals(kq, test);
-//    }
+
 
     //Check exist
     @Test
@@ -139,15 +88,7 @@ public class LoanTypeDAOTest {
         assertEquals(t, test);
     }
 
-//    @Test
-//    public void testAddLoanType() {
-//        boolean t = true;
-//        LoanTypeDAO dao = new LoanTypeDAO();
-//        ArrayList<LoanType> list = new ArrayList<>();
-//        list.add(new LoanType("Hello kitty", "ap dung cho tai khoan vang", 4.01, 30));
-//        boolean test = dao.addLoanType(list);
-//        assertEquals(t, test);
-//    }
+
     @Test
     public void testAddLoanType(){
          boolean test =true;

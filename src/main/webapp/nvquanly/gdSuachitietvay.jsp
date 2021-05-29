@@ -37,7 +37,7 @@
                     for (int i = 0; i < choseLoan.size(); i++) {
                 %>
                 <h4><%=choseLoan.get(i).getDescription()%></h4>
-                <h4><input type="number"  step="0.01" min="0.0" autofocus="autofocus" name="changeLoan" onkeypress="validate(event)" value="<%=choseLoan.get(i).getRate()%>" required />% </h4>
+                <h4><input type="number"  step="0.01" min="0.0" max="20" autofocus="autofocus" name="changeLoan" onkeypress="validate(event)" value="<%=choseLoan.get(i).getRate()%>" required />% </h4>
                     <%
                         }
 

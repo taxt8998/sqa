@@ -45,7 +45,7 @@
                 <%
                     }
                 %>
-                <h4><input type="number"  step="0.01" min="0.0" autofocus="autofocus" name="changeDep" onkeypress="validate(event)" value="<%=choseDep.get(i).getRate()%>" required />% </h4>
+                <h4><input type="number"  step="0.01" min="0.0" max="20" autofocus="autofocus" name="changeDep" onkeypress="validate(event)" value="<%=choseDep.get(i).getRate()%>" required />% </h4>
 
                 <%
                     }

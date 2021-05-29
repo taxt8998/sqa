@@ -28,21 +28,21 @@
                 <li>
                     <h4>Áp dụng với tài khoản vàng</h4>
                     <label for="">Lãi suất: </label>
-                    <input type="number"  step="0.01" min="0.0"  id="rate_gold" name="rate_gold" placeholder="Nhập lãi theo %" required />
+                    <input type="number"  step="0.01" min="0.0" max="20.0" id="rate_gold" name="rate_gold" placeholder="Nhập lãi theo %" required />
                     <label for="">Thời hạn tối đa: </label>
                     <input type="number" min="0" id="duration_gold" name="duration_gold" placeholder="Nhập số tháng!" required />
                 </li>
                 <li>
                     <h4>Áp dụng với tài khoản bạc</h4>
                     <label for="">Lãi suất: </label>
-                    <input type="number" step="0.01" min="0.0"  id="rate_silver" name="rate_silver" placeholder="Nhập lãi theo %" required />
+                    <input type="number" step="0.01" min="0.0" max="20.0" id="rate_silver" name="rate_silver" placeholder="Nhập lãi theo %" required />
                     <label for="">Thời hạn tối đa: </label>
                     <input type="number" min="0" id="duration_silver" name="duration_silver" placeholder="Nhập số tháng!" required />
                 </li>
                 <li>
                     <h4>Áp dụng với tài khoản đồng</h4>
                     <label for="">Lãi suất: </label>
-                    <input type="number" step="0.01" min="0.0"  id="rate_bronze" name="rate_bronze" placeholder="Nhập lãi theo %" required />
+                    <input type="number" step="0.01" min="0.0" max="20.0" id="rate_bronze" name="rate_bronze" placeholder="Nhập lãi theo %" required />
                     <label for="">Thời hạn tối đa: </label>
                     <input type="number" min="0" id="duration_bronze" name="duration_bronze" placeholder="Nhập số tháng!" required />
                 </li>
