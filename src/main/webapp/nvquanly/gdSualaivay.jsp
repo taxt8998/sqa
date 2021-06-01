@@ -27,7 +27,7 @@
             session.setAttribute("listLoan", listLoan);
         %>
         <form action="gdSuachitietvay.jsp">
-            <select id="kieuvay" name="kieuvay">
+            <select id="kieuvay" name="kieuvay">]
                 <% for (String s : set) {%>
                 <option><%=s%> </option>
                 <%}%>
